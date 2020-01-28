@@ -21,4 +21,16 @@ use Illuminate\Http\Request;
         return Auth::user()->level;
     })->middleware('jwt.verify');
 
+
 //});
+
+Route::post('tambahanggota','AnggotaController@store')->middleware('jwt.verify');
+Route::put('ubahanggota/{id}','AnggotaController@update')->middleware('jwt.verify');
+Route::delete('deleteanggota/{id}','AnggotaController@destroy')->middleware('jwt.verify');
+Route::get('tampilanggota','AnggotaController@index')->middleware('jwt.verify');
+
+Route::post('tambahbuku','BukuController@store')->middleware('jwt.verify');
+Route::put('ubahbuku/{id}','BukuController@update')->middleware('jwt.verify');
+Route::delete('deletebuku/{id}','BukuController@destroy')->middleware('jwt.verify');
+Route::get('tampilbuku','BukuController@index')->middleware('jwt.verify');
+
