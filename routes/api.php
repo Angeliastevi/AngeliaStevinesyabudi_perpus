@@ -34,3 +34,12 @@ Route::put('ubahbuku/{id}','BukuController@update')->middleware('jwt.verify');
 Route::delete('deletebuku/{id}','BukuController@destroy')->middleware('jwt.verify');
 Route::get('tampilbuku','BukuController@index')->middleware('jwt.verify');
 
+Route::post('tambahpeminjaman','PeminjamanController@store')->middleware('jwt.verify');
+Route::put('ubahpeminjaman/{id}','PeminjamanController@update')->middleware('jwt.verify');
+Route::delete('deletepeminjaman/{id}','PeminjamanController@destroy')->middleware('jwt.verify');
+
+Route::post('tambahdetail','PeminjamanController@insert')->middleware('jwt.verify');
+Route::put('ubahdetail/{id}','PeminjamanController@ubah')->middleware('jwt.verify');
+Route::delete('deletedetail/{id}','PeminjamanController@hapus')->middleware('jwt.verify');
+
+Route::get('tampildetail/{id}','PeminjamanController@index')->middleware('jwt.verify');
